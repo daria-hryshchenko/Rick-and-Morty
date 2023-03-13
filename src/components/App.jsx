@@ -1,3 +1,5 @@
+import { Container } from './App.styled';
+
 export const App = () => {
-  return <>ff</>;
+  return <Container>fff</Container>;
 };
