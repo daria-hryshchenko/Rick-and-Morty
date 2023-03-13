@@ -16,7 +16,6 @@ export const App = () => {
       {/* <Suspense fallback={<Loader />}>
         <Routes>
           <Route element={<HomePage />} />
-          
 
           <Route path="*" element={<div>Page not found </div>} />
         </Routes>
