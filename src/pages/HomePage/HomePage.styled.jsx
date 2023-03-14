@@ -23,7 +23,6 @@ export const CharactersList = styled.div`
   flex-direction: wrap;
   flex-wrap: wrap;
   gap: 20px;
-
   margin-top: 51px;
 `;
 

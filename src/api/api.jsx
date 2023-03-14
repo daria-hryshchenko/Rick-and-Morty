@@ -1,12 +1,5 @@
 import axios from 'axios';
 
-export const requestCharacters = async () => {
-  const { data } = await axios.get(
-    'https://rickandmortyapi.com/api/character/'
-  );
-  return data;
-};
-
 export const requestCharactersById = async id => {
   const { data } = await axios.get(
     `https://rickandmortyapi.com/api/character/${id}`
@@ -14,9 +7,9 @@ export const requestCharactersById = async id => {
   return data;
 };
 
-export const requestSeachByName = async input => {
+export const requestSeachByName = async query => {
   const { data } = await axios.get(
-    `https://rickandmortyapi.com/api/character/?name=${input}`
+    `https://rickandmortyapi.com/api/character/?name=${query}`
   );
   return data.results;
 };
