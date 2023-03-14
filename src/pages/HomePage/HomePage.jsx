@@ -16,11 +16,16 @@ export const HomePage = () => {
   const [characters, setCharacters] = useState([]);
   const [query, setQuery] = useState('');
 
+  const handleChange = event => {
+    setQuery(event.target.value);
+    localStorage.setItem('inputValue', event.target.value);
+  };
+
   useEffect(() => {
     requestSeachByName(query)
       .then(data => {
         setCharacters([...data].sort((a, b) => a.name.localeCompare(b.name)));
-        // console.log(data);
+        setQuery(localStorage.getItem('inputValue'));
       })
       .catch(error => console.error(error));
   }, [query]);
@@ -32,7 +37,7 @@ export const HomePage = () => {
         type="text"
         placeholder="Filter by name..."
         className={'input'}
-        onChange={event => setQuery(event.target.value)}
+        onChange={handleChange}
         value={query}
       />
       <CharactersList>

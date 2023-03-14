@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { useLocation, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { requestCharactersById } from 'api/api';
 import Loader from 'components/Loader/Loader';
 
 export const CharacterInfo = () => {
-  const location = useLocation();
-
   const [character, setCharacter] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -24,7 +22,7 @@ export const CharacterInfo = () => {
   }, [characterId]);
   return (
     <div>
-      <NavLink to={location.state ?? '/'}>🡐 Go back</NavLink>
+      <NavLink to={'/'}>🡐 Go back</NavLink>
       {loading && <Loader />}
       {character !== null && (
         <div character={character}>
