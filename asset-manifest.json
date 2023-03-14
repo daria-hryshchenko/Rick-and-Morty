@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/daria-hryshchenko/Rick-and-Morty/static/css/main.7acaea2f.css",
-    "main.js": "/daria-hryshchenko/Rick-and-Morty/static/js/main.a5e3981a.js",
+    "main.js": "/daria-hryshchenko/Rick-and-Morty/static/js/main.4c25131c.js",
     "static/media/PngItem_438051 1-min.png": "/daria-hryshchenko/Rick-and-Morty/static/media/PngItem_438051 1-min.4fb01f0d206a7b771bd0.png",
     "index.html": "/daria-hryshchenko/Rick-and-Morty/index.html",
     "main.7acaea2f.css.map": "/daria-hryshchenko/Rick-and-Morty/static/css/main.7acaea2f.css.map",
-    "main.a5e3981a.js.map": "/daria-hryshchenko/Rick-and-Morty/static/js/main.a5e3981a.js.map"
+    "main.4c25131c.js.map": "/daria-hryshchenko/Rick-and-Morty/static/js/main.4c25131c.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.a5e3981a.js"
+    "static/js/main.4c25131c.js"
   ]
 }
