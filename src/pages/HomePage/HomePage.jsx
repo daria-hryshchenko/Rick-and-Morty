@@ -14,7 +14,7 @@ export const HomePage = () => {
   const location = useLocation();
 
   const [characters, setCharacters] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState([]);
 
   const handleChange = event => {
     setQuery(event.target.value);
@@ -36,9 +36,8 @@ export const HomePage = () => {
       <input
         type="text"
         placeholder="Filter by name..."
-        className={'input'}
         onChange={handleChange}
-        value={query}
+        value={query == null ? '' : query}
       />
       <CharactersList>
         {characters.map(({ id, species, name, image }) => {
