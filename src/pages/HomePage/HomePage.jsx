@@ -14,7 +14,7 @@ export const HomePage = () => {
   const location = useLocation();
 
   const [characters, setCharacters] = useState([]);
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState('');
 
   const handleChange = event => {
     setQuery(event.target.value);
@@ -24,12 +24,16 @@ export const HomePage = () => {
   useEffect(() => {
     requestSeachByName(query)
       .then(data => {
+        if (data === undefined) {
+          return setCharacters([]);
+        }
         setCharacters([...data].sort((a, b) => a.name.localeCompare(b.name)));
         setQuery(localStorage.getItem('inputValue'));
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error);
+      });
   }, [query]);
-
   return (
     <Container>
       <HeroImage src={HeroImg} alt="title Rick and Morty" />
@@ -39,19 +43,24 @@ export const HomePage = () => {
         onChange={handleChange}
         value={query == null ? '' : query}
       />
-      <CharactersList>
-        {characters.map(({ id, species, name, image }) => {
-          return (
-            <CharacterItem key={id}>
-              <NavLink to={`/character/${id}`} state={{ from: location }}>
-                <img src={image} alt={name} width="240px" height="168px" />
-                <p>{name}</p>
-                <p>{species}</p>
-              </NavLink>
-            </CharacterItem>
-          );
-        })}
-      </CharactersList>
+
+      {characters.length > 0 ? (
+        <CharactersList>
+          {characters.map(({ id, species, name, image }) => {
+            return (
+              <CharacterItem key={id}>
+                <NavLink to={`/character/${id}`} state={{ from: location }}>
+                  <img src={image} alt={name} width="240px" height="168px" />
+                  <p>{name}</p>
+                  <p>{species}</p>
+                </NavLink>
+              </CharacterItem>
+            );
+          })}
+        </CharactersList>
+      ) : (
+        <p>No results found</p>
+      )}
     </Container>
   );
 };

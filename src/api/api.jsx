@@ -9,9 +9,13 @@ export const requestCharactersById = async id => {
 };
 
 export const requestSeachByName = async query => {
-  const { data } = await axios.get(
-    `https://rickandmortyapi.com/api/character/?name=${query}`
-  );
+  try {
+    const { data } = await axios.get(
+      `https://rickandmortyapi.com/api/character/?name=${query}`
+    );
 
-  return data.results;
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
 };
