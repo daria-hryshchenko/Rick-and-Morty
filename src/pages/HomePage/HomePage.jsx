@@ -5,6 +5,8 @@ import {
   HeroImage,
   CharactersList,
   CharacterItem,
+  Image,
+  Input,
 } from './HomePage.styled';
 
 import HeroImg from 'images/PngItem_438051 1-min.png';
@@ -37,7 +39,7 @@ export const HomePage = () => {
   return (
     <Container>
       <HeroImage src={HeroImg} alt="title Rick and Morty" />
-      <input
+      <Input
         type="text"
         placeholder="Filter by name..."
         onChange={handleChange}
@@ -50,7 +52,7 @@ export const HomePage = () => {
             return (
               <CharacterItem key={id}>
                 <NavLink to={`/character/${id}`} state={{ from: location }}>
-                  <img src={image} alt={name} width="240px" height="168px" />
+                  <Image src={image} alt={name} width="240px" height="168px" />
                   <p>{name}</p>
                   <p>{species}</p>
                 </NavLink>

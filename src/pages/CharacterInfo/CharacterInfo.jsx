@@ -15,7 +15,6 @@ export const CharacterInfo = () => {
     requestCharactersById(characterId)
       .then(data => {
         setCharacter(data);
-        console.log(data);
       })
       .catch(error => setError(error.message))
       .finally(setLoading(false));

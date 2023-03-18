@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
-import { GoogleButton } from 'react-google-button';
 import { UserAuth } from 'auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Container, Iframe, List, Item, Button } from './LoginPage.styled';
+import { HeroImage } from 'pages/HomePage/HomePage.styled';
+import HeroImg from 'images/PngItem_438051 1-min.png';
+import { GoogleButton } from 'react-google-button';
 
 const LoginPage = () => {
   const { googleSignIn, user } = UserAuth();
@@ -22,12 +25,21 @@ const LoginPage = () => {
   }, [user]);
 
   return (
-    <div>
-      <h1 className="text-center text-3xl font-bold py-8">Sign in</h1>
-      <div className="max-w-[240px] m-auto py-4">
-        <GoogleButton onClick={handleGoogleSignIn} />
-      </div>
-    </div>
+    <Container>
+      <List>
+        <Item>
+          <HeroImage src={HeroImg} alt="title Rick and Morty" />
+        </Item>
+        <Item>
+          <GoogleButton onClick={handleGoogleSignIn} />
+          <Iframe
+            src="https://giphy.com/embed/SvGFA2WF9IP0WjmzvE"
+            className="giphy-embed"
+            allowFullScreen
+          ></Iframe>
+        </Item>
+      </List>
+    </Container>
   );
 };
 

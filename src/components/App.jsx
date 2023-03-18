@@ -1,16 +1,17 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from 'components/Navbar';
+import Navbar from 'components/Navbar/Navbar';
 import Loader from 'components/Loader/Loader';
 import PrivateRoute from 'auth/PrivateRoute';
 import { AuthContextProvider } from 'auth/AuthContext';
 import { HomePage } from 'pages/HomePage/HomePage';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import { CharacterInfo } from 'pages/CharacterInfo/CharacterInfo';
+import { Container } from './App.styled';
 
 export const App = () => {
   return (
-    <div>
+    <Container>
       <AuthContextProvider>
         <Suspense fallback={<Loader />}>
           <Navbar />
@@ -36,6 +37,6 @@ export const App = () => {
           </Routes>
         </Suspense>
       </AuthContextProvider>
-    </div>
+    </Container>
   );
 };

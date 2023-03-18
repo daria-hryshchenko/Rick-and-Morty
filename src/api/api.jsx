@@ -1,11 +1,15 @@
 import axios from 'axios';
 
 export const requestCharactersById = async id => {
-  const { data } = await axios.get(
-    `https://rickandmortyapi.com/api/character/${id}`
-  );
+  try {
+    const { data } = await axios.get(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const requestSeachByName = async query => {
