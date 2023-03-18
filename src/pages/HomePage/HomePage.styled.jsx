@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 312px;
+  margin: 0 auto;
 `;
 
 export const HeroImage = styled.img`
