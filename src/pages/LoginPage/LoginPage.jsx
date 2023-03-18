@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { UserAuth } from 'auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { Container, Iframe, List, Item, Button } from './LoginPage.styled';
+import { Container, Iframe, List, Item } from './LoginPage.styled';
 import { HeroImage } from 'pages/HomePage/HomePage.styled';
 import HeroImg from 'images/PngItem_438051 1-min.png';
 import { GoogleButton } from 'react-google-button';
@@ -22,7 +22,7 @@ const LoginPage = () => {
     if (user != null) {
       navigate('/home');
     }
-  }, [user]);
+  }, [navigate, user]);
 
   return (
     <Container>
