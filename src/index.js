@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import GlobalStyle from 'GlobalStyles/GlobalStyles.jsx';
 
-import * as dotenv from 'dotenv';
-dotenv.config();
+// import * as dotenv from 'dotenv';
+// dotenv.config();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
