@@ -3,13 +3,7 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches: [main]
-env:
-  REACT_APP_FIREBASE_API_KEY: ${{ variables.REACT_APP_FIREBASE_API_KEY }}
-  REACT_APP_FIREBASE_APP_ID: ${{ variables.REACT_APP_FIREBASE_APP_ID }}
- REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ variables.REACT_APP_FIREBASE_AUTH_DOMAIN }}
-  REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ variables.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
-  REACT_APP_FIREBASE_PROJECT_ID: ${{ variables.REACT_APP_FIREBASE_PROJECT_ID }}
-  REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ variables.REACT_APP_FIREBASE_STORAGE_BUCKET }}
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -28,3 +22,14 @@ jobs:
         with:
           branch: gh-pages
           folder: build
+
+      - name: Variables
+      run: |
+
+      env:
+  REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
+  REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
+  REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
+  REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}
+  REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
