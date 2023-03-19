@@ -35,7 +35,7 @@ export const HomePage = () => {
   useEffect(() => {
     requestSeachByName(query)
       .then(data => {
-        console.log(data);
+        console.log(characters);
         console.log(query.length);
         if (data === undefined) {
           return setCharacters([]);
