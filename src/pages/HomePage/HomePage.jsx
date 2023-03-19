@@ -33,21 +33,21 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
+    if (query === null) {
+      return;
+    }
     requestSeachByName(query)
       .then(data => {
-        console.log(characters);
-        console.log(query.length);
         if (data === undefined) {
           return setCharacters([]);
         }
-        console.log(characters);
         setCharacters([...data].sort((a, b) => a.name.localeCompare(b.name)));
         setQuery(localStorage.getItem('inputValue'));
       })
       .catch(error => {
         console.error(error);
       });
-  }, [characters, query]);
+  }, [query]);
   return (
     <Container>
       <HeroImage src={HeroImg} alt="title Rick and Morty" />
@@ -57,7 +57,7 @@ export const HomePage = () => {
           type="text"
           placeholder="Filter by name..."
           onChange={handleChange}
-          value={query === 0 ? '' : query}
+          value={query === null ? '' : query}
         />
       </Label>
 
