@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
+  width: 312px;
+
+  @media screen and (min-width: 1440px) {
+    width: 1020px;
+  }
 `;
 
 export const Title = styled.p`
-  display: flex;
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
@@ -20,8 +19,6 @@ export const Button = styled.button`
   border: none;
   border-radius: 15px;
   background-color: #00b0c8;
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -37,7 +34,8 @@ export const Button = styled.button`
 export const List = styled.ul`
   list-style: none;
   display: flex;
-  align-items: baseline;
+  justify-content: flex-end;
+  align-items: center;
   gap: 10px;
 `;
 

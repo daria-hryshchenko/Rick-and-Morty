@@ -5,7 +5,7 @@ import Loader from 'components/Loader/Loader';
 import PrivateRoute from 'auth/PrivateRoute';
 import { AuthContextProvider } from 'auth/AuthContext';
 import { HomePage } from 'pages/HomePage/HomePage';
-import LoginPage from 'pages/LoginPage/LoginPage';
+import { LoginPage } from 'pages/LoginPage/LoginPage';
 import { CharacterInfo } from 'pages/CharacterInfo/CharacterInfo';
 import { Container } from './App.styled';
 

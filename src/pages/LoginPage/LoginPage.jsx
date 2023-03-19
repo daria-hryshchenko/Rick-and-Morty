@@ -6,7 +6,7 @@ import { HeroImage } from 'pages/HomePage/HomePage.styled';
 import HeroImg from 'images/PngItem_438051 1-min.png';
 import { GoogleButton } from 'react-google-button';
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const { googleSignIn, user } = UserAuth();
   const navigate = useNavigate();
 
@@ -43,4 +43,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+

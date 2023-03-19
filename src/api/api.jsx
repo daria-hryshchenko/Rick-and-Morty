@@ -17,7 +17,6 @@ export const requestSeachByName = async query => {
     const { data } = await axios.get(
       `https://rickandmortyapi.com/api/character/?name=${query}`
     );
-
     return data.results;
   } catch (error) {
     console.log(error);

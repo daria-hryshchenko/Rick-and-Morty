@@ -1,8 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { NavLink } from 'react-router-dom';
 import { requestCharactersById } from 'api/api';
 import Loader from 'components/Loader/Loader';
+import {
+  Container,
+  GoBackBtn,
+  IconBack,
+  Description,
+  Wrap,
+  ImgCharacter,
+  Name,
+  Heading,
+  WrapDescription,
+  List,
+  ListItem,
+  Title,
+  SubTitle,
+} from './CharacterInfo.styled';
 
 export const CharacterInfo = () => {
   const [character, setCharacter] = useState(null);
@@ -20,39 +34,46 @@ export const CharacterInfo = () => {
       .finally(setLoading(false));
   }, [characterId]);
   return (
-    <div>
-      <NavLink to={'/'}>🡐 Go back</NavLink>
+    <Container>
+      <GoBackBtn to={'/'}>
+        <IconBack />
+        <Description>Go back</Description>
+      </GoBackBtn>
       {loading && <Loader />}
       {character !== null && (
-        <div character={character}>
-          <img src={character.image} alt={character.name} />
-          <p>{character.name}</p>
-          <p>Informations</p>
-          <ul>
-            <li>
-              <p>Gender</p>
-              <p>{character.gender}</p>
-            </li>
-            <li>
-              <p>Status</p>
-              <p>{character.status}</p>
-            </li>
-            <li>
-              <p>Specie</p>
-              <p>{character.species}</p>
-            </li>
-            <li>
-              <p>Origin</p>
-              <p>{character.origin.name}</p>
-            </li>
-            <li>
-              <p>Type</p>
-              <p>{character.type === '' ? 'Unknown' : character.type}</p>
-            </li>
-          </ul>
-        </div>
+        <Wrap character={character}>
+          <ImgCharacter src={character.image} alt={character.name} />
+          <Name>{character.name}</Name>
+          <WrapDescription>
+            <Heading>Informations</Heading>
+            <List>
+              <ListItem>
+                <Title>Gender</Title>
+                <SubTitle>{character.gender}</SubTitle>
+              </ListItem>
+              <ListItem>
+                <Title>Status</Title>
+                <SubTitle>{character.status}</SubTitle>
+              </ListItem>
+              <ListItem>
+                <Title>Specie</Title>
+                <SubTitle>{character.species}</SubTitle>
+              </ListItem>
+              <ListItem>
+                <Title>Origin</Title>
+                <SubTitle>{character.origin.name}</SubTitle>
+              </ListItem>
+              <ListItem>
+                <Title>Type</Title>
+                <SubTitle>
+                  {character.type === '' ? 'Unknown' : character.type}
+                </SubTitle>
+              </ListItem>
+            </List>
+          </WrapDescription>
+        </Wrap>
       )}
       {error && <div>Oops, some error occured... Message:{error}</div>}
-    </div>
+    </Container>
   );
 };

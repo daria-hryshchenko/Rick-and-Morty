@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: end;
-  align-items: flex-end;
   width: 312px;
-  margin-bottom: 8px;
+  margin: 20px auto 10px;
+
+  @media screen and (min-width: 1440px) {
+    width: 1020px;
+  }
 `;

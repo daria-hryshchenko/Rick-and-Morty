@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   Container,
   HeroImage,
@@ -7,6 +7,15 @@ import {
   CharacterItem,
   Image,
   Input,
+  Label,
+  IconFind,
+  NavToCharacter,
+  List,
+  NameCharacter,
+  SpeciesCharacter,
+  Notification,
+  Iframe,
+  Title,
 } from './HomePage.styled';
 
 import HeroImg from 'images/PngItem_438051 1-min.png';
@@ -26,42 +35,60 @@ export const HomePage = () => {
   useEffect(() => {
     requestSeachByName(query)
       .then(data => {
+        console.log(data);
+        console.log(query.length);
         if (data === undefined) {
           return setCharacters([]);
         }
+        console.log(characters);
         setCharacters([...data].sort((a, b) => a.name.localeCompare(b.name)));
         setQuery(localStorage.getItem('inputValue'));
       })
       .catch(error => {
         console.error(error);
       });
-  }, [query]);
+  }, [characters, query]);
   return (
     <Container>
       <HeroImage src={HeroImg} alt="title Rick and Morty" />
-      <Input
-        type="text"
-        placeholder="Filter by name..."
-        onChange={handleChange}
-        value={query == null ? '' : query}
-      />
+      <Label>
+        <IconFind />
+        <Input
+          type="text"
+          placeholder="Filter by name..."
+          onChange={handleChange}
+          value={query === 0 ? '' : query}
+        />
+      </Label>
 
-      {characters.length > 0 ? (
+      {characters.length !== 0 ? (
         <CharactersList>
           {characters.map(({ id, species, name, image }) => {
             return (
               <CharacterItem key={id}>
-                <NavLink to={`/character/${id}`} state={{ from: location }}>
-                  <Image src={image} alt={name} width="240px" height="168px" />
-                  <p>{name}</p>
-                  <p>{species}</p>
-                </NavLink>
+                <NavToCharacter
+                  to={`/character/${id}`}
+                  state={{ from: location }}
+                >
+                  <Image src={image} alt={name} />
+                  <List>
+                    <NameCharacter>{name}</NameCharacter>
+                    <SpeciesCharacter>{species}</SpeciesCharacter>
+                  </List>
+                </NavToCharacter>
               </CharacterItem>
             );
           })}
         </CharactersList>
       ) : (
-        <p>No results found</p>
+        <Notification>
+          <Title>No results found</Title>
+          <Iframe
+            src="https://giphy.com/embed/lpzHeOQQKhQ0I5UbhL"
+            className="giphy-embed"
+            allowFullScreen
+          ></Iframe>
+        </Notification>
       )}
     </Container>
   );
