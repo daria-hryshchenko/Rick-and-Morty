@@ -86,6 +86,7 @@ export const HomePage = () => {
           <Iframe
             src="https://giphy.com/embed/lpzHeOQQKhQ0I5UbhL"
             className="giphy-embed"
+            referrerpolicy="no-referrer"
             allowFullScreen
           ></Iframe>
         </Notification>

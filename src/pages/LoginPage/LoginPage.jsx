@@ -35,6 +35,7 @@ export const LoginPage = () => {
           <Iframe
             src="https://giphy.com/embed/SvGFA2WF9IP0WjmzvE"
             className="giphy-embed"
+            referrerpolicy="no-referrer"
             allowFullScreen
           ></Iframe>
         </Item>
@@ -42,5 +43,3 @@ export const LoginPage = () => {
     </Container>
   );
 };
-
-
