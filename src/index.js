@@ -9,9 +9,7 @@ dotenv.config();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter
-    // basename="/Rick-and-Morty/"
-    >
+    <BrowserRouter basename="/Rick-and-Morty/">
       <GlobalStyle />
       <App />
     </BrowserRouter>
